@@ -11,28 +11,27 @@
     http://www.springframework.org/schema/util
     http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<context:component-scan base-package="com.spring.ioc"/>
-	
-	<util:list list-class="java.util.ArrayList" id="myList">
-		<value>English</value>
-		<value>French</value>
-		<value>Spanish</value>
+	<context:component-scan
+		base-package="com.spring.core" />
+
+	<util:list list-class="java.util.LinkedList"
+		id="visitingPalces">
+		<value>India</value>
+		<value>America</value>
+		<value>England</value>
 	</util:list>
 
-	<bean id="student" class="com.spring.ioc.Student">
+	<bean id="student" class="com.spring.core.Student">
 		<property name="id" value="10" />
 		<property name="name" value="Amit" />
-		<property name="listOfSubjects" ref="myList">
+		<property name="location" value="Karnataka" />
+		<property name="listOfLang">
+			<list>
+				<value>Hindi</value>
+				<value>English</value>
+				<value>Maths</value>
+			</list>
 		</property>
+		<property name="visitedCountries" ref="visitingPalces"></property>
 	</bean>
-	<!-- <bean id="address1" class="com.spring.ioc.Address">
-		<property name="houseNo" value="123" />
-		<property name="streetName" value="Neeladri Nagar" />
-		<property name="city" value="Banagalore" />
-	</bean>
-	<bean id="address2" class="com.spring.ioc.Address">
-		<property name="houseNo" value="123" />
-		<property name="streetName" value="Neeladri Nagar" />
-		<property name="city" value="Banagalore" />
-	</bean> -->
 </beans>
